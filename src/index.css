@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardWrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 600px;
+    width: 80vw;
+
+    .card {
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        background: lightblue;
+        cursor: pointer;
+        font-size: 3rem;
+        transform-style: preserve-3d;
+        transition: transform 0.5s;
+
+        .front, .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+
+        .back {
+            transform: rotateY(180deg);
+        }
+
+        .front {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+    }
+
+    .card.faceDown {
+        transform: rotateY(180deg);
+    }
+}
